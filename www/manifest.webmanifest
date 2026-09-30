@@ -1,0 +1,57 @@
+{
+ "name": "Caja Miscelánea",
+ "short_name": "Caja",
+ "start_url": "./index.html",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#EEF1F5",
+ "theme_color": "#0B1220",
+ "lang": "es",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "orientation": "any",
+ "categories": [
+  "business",
+  "productivity"
+ ],
+ "shortcuts": [
+  {
+   "name": "Vender",
+   "short_name": "Vender",
+   "url": "./index.html#sell"
+  },
+  {
+   "name": "Caja",
+   "short_name": "Caja",
+   "url": "./index.html#caja"
+  },
+  {
+   "name": "Inventario",
+   "short_name": "Inventario",
+   "url": "./index.html#inv"
+  },
+  {
+   "name": "Proveedores",
+   "short_name": "Proveedores",
+   "url": "./index.html#prov"
+  }
+ ]
+}
