@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Caja Miscelánea</title>
+<title>Cecilia · Miscelánea</title>
 <link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0B1220"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Caja"><link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{--bg:#EEF1F5;--card:#fff;--ink:#101828;--mut:#566072;--line:#D3D9E1;--pri:#0F766E;--priT:#fff;--bad:#B42318;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -151,18 +151,45 @@ button,input,select{touch-action:manipulation;-webkit-tap-highlight-color:transp
  .cartp.open{transform:none}
  .cl{display:inline-flex;align-items:center}
 }
+
+#splash{position:fixed;inset:0;z-index:999;display:grid;place-items:center;align-content:center;background:radial-gradient(circle at 50% 35%,#134E4A,#0B1220 70%);color:#fff;text-align:center;transition:opacity .5s}
+.spl{width:92px;height:92px;border-radius:26px;display:grid;place-items:center;margin:0 auto 18px;background:linear-gradient(135deg,#14B8A6,#F59E0B);font-size:52px;font-weight:800;box-shadow:0 12px 40px #14b8a666;animation:pop .7s cubic-bezier(.2,1.4,.4,1) both}
+.spk{letter-spacing:.5em;font-size:13px;font-weight:800;color:#94A3B8;padding-left:.5em}
+.spn{font-size:clamp(44px,12vw,72px);font-weight:800;line-height:1.05;background:linear-gradient(90deg,#5EEAD4,#FDE68A,#FDBA74);-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise .8s .15s ease both}
+.spf{margin-top:8px;color:#CBD5E1;animation:rise .8s .3s ease both}
+@keyframes pop{from{transform:scale(.4);opacity:0}}@keyframes rise{from{transform:translateY(14px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.spl,.spn,.spf{animation:none}}
+.brand{margin:0 auto 0 0;display:flex;flex-direction:column;line-height:1}
+.brand small{font-size:10px;letter-spacing:.34em;color:#94A3B8;font-weight:800}
+.brand h1{margin:3px 0 0}
+.logo{font-weight:800;color:#fff;font-size:24px}
+.hero{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;padding:22px;border-radius:20px;color:#F8FAFC;background:radial-gradient(circle at 85% 20%,#14B8A655,transparent 45%),linear-gradient(135deg,#0F766E,#0B1220 75%)}
+.hero small{display:block;color:#CBD5E1}.hero small::first-letter{text-transform:uppercase}
+.hero h2{margin:2px 0 0;font-size:22px}
+.hn{margin:0;font-size:clamp(38px,8vw,60px);font-weight:800;line-height:1.05;background:linear-gradient(90deg,#5EEAD4,#FDE68A,#FDBA74);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hf{margin:4px 0 0;color:#CBD5E1}
+.chip2{padding:6px 14px;border-radius:99px;border:1px solid #ffffff55;font-weight:700;font-size:14px}.chip2.on{background:#14B8A6;color:#04211D;border-color:#14B8A6}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:112px;padding:14px;text-align:left}
+.tile i{font-style:normal;font-size:30px}.tile b{font-size:18px}.tile small{color:var(--mut);font-weight:500}
+.tile:nth-child(1){border-top:5px solid #0F766E}.tile:nth-child(2){border-top:5px solid #2563EB}.tile:nth-child(3){border-top:5px solid #D97706}.tile:nth-child(4){border-top:5px solid #DB2777}
+.kpi em{display:block;font-style:normal;font-size:14px;font-weight:700}.kpi .up{color:var(--pri)}.kpi .dn2{color:var(--bad)}
+@media(max-width:760px){.hero{padding:18px}nav button{font-size:11px}}
 </style></head>
 <body>
-<header><button id="mb" aria-label="Mostrar u ocultar el menú" title="Mostrar u ocultar el menú" aria-expanded="true" onclick="toggleNav()" style="width:48px;padding:0;font-size:22px">☰</button><span class="logo" aria-hidden="true">🧾</span><h1 id="bname">Caja Miscelánea</h1>
+<div id="splash" aria-hidden="true"><div><div class="spl">C</div><div class="spk">MISCELÁNEA</div><div class="spn" id="spn">Cecilia</div><div class="spf" id="spf">Papelería · Regalos · Variedades</div></div></div>
+<header><button id="mb" aria-label="Mostrar u ocultar el menú" title="Mostrar u ocultar el menú" aria-expanded="true" onclick="toggleNav()" style="width:48px;padding:0;font-size:22px">☰</button><span class="logo" id="logo" aria-hidden="true">C</span><div class="brand"><small>MISCELÁNEA</small><h1 id="bname">Cecilia</h1></div>
 <button id="inst" class="hide" onclick="installApp()">Instalar en el PC</button>
 <button aria-label="Ajustes: nombre del negocio y colores" title="Ajustes: nombre del negocio y colores" onclick="editC()" style="width:48px;padding:0;font-size:20px">⚙</button></header>
 <div class="shell"><nav id="nav" aria-label="Modos de la app">
+<button id="t-home" title="Inicio" onclick="tab('home')"><i>🏠</i><span class="lb">Inicio</span></button>
 <button id="t-sell" title="Vender" onclick="tab('sell')"><i>🛒</i><span class="lb">Vender</span></button>
 <button id="t-inv" title="Inventario" onclick="tab('inv')"><i>📦</i><span class="lb">Inventario</span><b class="dot hide" id="nb"></b></button>
 <button id="t-prov" title="Proveedores" onclick="tab('prov')"><i>🚚</i><span class="lb">Proveedores</span></button>
 <button id="t-caja" title="Caja" onclick="tab('caja')"><i>💵</i><span class="lb">Caja</span></button>
 </nav><div class="scrim" id="scrim" onclick="toggleNav()"></div>
 <main>
+<section id="v-home" class="hide"></section>
 <section id="v-sell" class="sell">
  <div>
   <div class="row"><input id="q" type="search" placeholder="Escribe 2 o 3 letras o escanea el código…" oninput="renderGrid()" onkeydown="if(event.key==='Enter')enterQ()" autocomplete="off"><button onclick="scan(c=>{$('q').value=c;enterQ()})" style="flex:0 0 auto">📷 Escanear</button></div>
@@ -216,7 +243,15 @@ button,input,select{touch-action:manipulation;-webkit-tap-highlight-color:transp
 
 <dialog id="dlgV"><h2>Servicios rápidos</h2><p style="color:var(--mut);margin:0 0 10px">Deja el valor vacío si el precio cambia en cada cobro (por ejemplo, recargas).</p><div id="sel"></div><button onclick="addSE()" style="width:100%">+ Agregar servicio</button><div class="row" style="margin-top:16px"><button onclick="$('dlgV').close()">Cancelar</button><button class="pri" onclick="saveSE()">Guardar servicios</button></div></dialog>
 
-<dialog id="dlgC"><h2>Ajustes</h2><label for="bn">Nombre del negocio</label><input id="bn" placeholder="Ej. Miscelánea La Esquina"><h2 style="margin-top:18px">Nombre y color de cada categoría</h2><div id="cl"></div><h2 style="margin-top:18px">Copia de seguridad</h2><div class="row"><button onclick="exportD()">Exportar copia</button><button onclick="$('imp').click()">Importar copia</button></div><input type="file" id="imp" accept=".json,application/json" class="hide" onchange="importD(this)"><div class="row" style="margin-top:16px"><button onclick="$('dlgC').close()">Cancelar</button><button class="pri" onclick="saveC()">Guardar ajustes</button></div></dialog>
+<dialog id="dlgC"><h2>Ajustes</h2><label for="bn">Nombre del negocio</label><input id="bn" placeholder="Ej. Cecilia">
+<label for="bs">Frase debajo del nombre</label><input id="bs" placeholder="Ej. Papelería · Regalos · Variedades"><h2 style="margin-top:18px">Nombre y color de cada categoría</h2><div id="cl"></div><h2 style="margin-top:18px">Copia de seguridad</h2><div class="row"><button onclick="exportD()">Exportar copia</button><button onclick="$('imp').click()">Importar copia</button><button id="nbtn" class="hide" onclick="openNube()">☁ Nube</button></div><input type="file" id="imp" accept=".json,application/json" class="hide" onchange="importD(this)"><div class="row" style="margin-top:16px"><button onclick="$('dlgC').close()">Cancelar</button><button class="pri" onclick="saveC()">Guardar ajustes</button></div></dialog>
+<dialog id="dlgN"><h2>Copia en la nube</h2>
+<p id="ns" class="note"></p>
+<div id="nlogin"><label for="ne">Correo</label><input id="ne" type="email" autocomplete="username"><label for="np">Clave</label><input id="np" type="password" autocomplete="current-password"><div class="row" style="margin-top:12px"><button class="pri" onclick="nubeConectar()">Conectar</button></div></div>
+<div id="nconn" class="hide"><div class="row" style="margin-top:12px"><button class="pri" onclick="nubeAhora()">Sincronizar ahora</button><button onclick="nubeDesconectar()">Desconectar</button></div><p class="note">Los datos se suben solos unos segundos después de cada cambio. Las fotos de facturas se quedan solo en este computador.</p></div>
+<div id="nchoose" class="hide"><p class="note">Esta cuenta ya tiene datos en la nube. Elige con cuidado, porque una de las dos copias se reemplaza.</p><div class="row" style="margin-top:12px"><button class="pri" onclick="nubeRestaurar()">Traer los datos de la nube a este PC</button></div><div class="row" style="margin-top:8px"><button onclick="nubeSubir()">Subir los datos de este PC (reemplaza la nube)</button></div></div>
+<div class="row" style="margin-top:16px"><button onclick="$('dlgN').close()">Cerrar</button></div></dialog>
+
 
 <dialog id="dlgM"><h2 id="mt">Movimiento</h2>
 <label for="mc">Concepto</label><input id="mc" placeholder="Ej. Pago a proveedor">
@@ -238,8 +273,13 @@ const CATS={pap:['Papelería y útiles','#2563EB'],ado:['Adornos y regalos','#DB
 const SERV=[['Fotocopia B/N',200],['Fotocopia color',500],['Impresión B/N',300],['Impresión color',800],['Minutos',300],['Recarga',0]];
 const METH={efectivo:'Efectivo',transf:'Nequi / Daviplata',tarjeta:'Tarjeta'};
 function seed(){return [['Cuaderno cuadriculado','pap',2500,4500,20,5,'7701'],['Lápiz negro','pap',400,800,60,15,'7702'],['Carpeta oficio','pap',900,1800,25,6,''],['Bolsa de regalo','ado',700,1500,30,8,''],['Moño adhesivo','ado',300,700,50,10,''],['Tarjeta de cumpleaños','ado',1200,2500,15,5,''],['Desodorante','cui',5500,8500,12,4,'7703'],['Jabón de baño','cui',1600,2800,24,6,''],['Carro de juguete','jug',3500,7000,10,3,''],['Bombillo LED','hog',3200,5500,14,4,''],['Cinta pegante','hog',1100,2200,20,5,''],['Galletas','con',900,1500,40,10,'7704'],['Chocolatina','con',1200,2000,3,8,'7705'],['Cinta de regalo por metro','ado',400,800,50,10,'','m'],['Cable eléctrico por metro','hog',1500,2500,100,20,'','m']].map((a,i)=>({id:i+1,name:a[0],cat:a[1],cost:a[2],price:a[3],stock:a[4],min:a[5],code:a[6],unit:a[7]||'und'}))}
-function load(){try{const s=JSON.parse(localStorage.getItem('pos1'));if(s&&s.p)return s}catch(e){}return{p:seed(),sales:[],caja:{open:false,base:0,t:0,moves:[]},hist:[]}}
-function save(){try{localStorage.setItem('pos1',JSON.stringify(S))}catch(e){toast('No hay espacio para guardar. Exporta una copia y borra fotos de facturas viejas.')}}
+function load(){
+ if(window.api){try{const r=window.api.loadSync();if(r&&r.state&&r.state.p)return r.state;
+  let ls=null;try{ls=JSON.parse(localStorage.getItem('pos1'))}catch(e){}
+  if(ls&&ls.p){const m=window.api.migrateSync(ls);if(m)return m}}catch(e){}
+  return{p:seed(),sales:[],caja:{open:false,base:0,t:0,moves:[]},hist:[]}}
+ try{const s=JSON.parse(localStorage.getItem('pos1'));if(s&&s.p)return s}catch(e){}return{p:seed(),sales:[],caja:{open:false,base:0,t:0,moves:[]},hist:[]}}
+function save(){if(window.api){try{window.api.save(JSON.stringify(S))}catch(e){toast('No se pudo guardar. Exporta una copia por seguridad.')}return}try{localStorage.setItem('pos1',JSON.stringify(S))}catch(e){toast('No hay espacio para guardar. Exporta una copia y borra fotos de facturas viejas.')}}
 let S=load(),cart=[],cat='top',method='efectivo',paid=0,editId=null,moveType='in';
 if(!S.serv)S.serv=SERV.map(s=>[...s]);
 if(S.cats)Object.keys(S.cats).forEach(k=>{if(CATS[k])CATS[k]=S.cats[k]});
@@ -247,7 +287,7 @@ if(!S.prov)S.prov=[];if(!S.fact)S.fact=[];
 
 function toast(m,ok){const t=$('toast');t.textContent=m;t.className='toast on'+(ok?' ok':'');clearTimeout(t._h);t._h=setTimeout(()=>t.className='toast',2200)}
 function beep(f=880,d=.09){try{const a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=f;g.gain.value=.08;o.connect(g);g.connect(a.destination);o.start();o.stop(a.currentTime+d)}catch(e){}}
-function tab(t){$('cbar').classList.toggle('hide',t!=='sell');if(navMobile()){$('nav').classList.remove('open');$('scrim').classList.remove('on')}['sell','inv','prov','caja'].forEach(x=>{$('v-'+x).classList.toggle('hide',x!==t);$('t-'+x).classList.toggle('on',x===t)});if(t==='inv')renderInv();if(t==='prov')renderProv();if(t==='caja')renderCaja();if(t==='sell')$('q').focus()}
+function tab(t){$('cbar').classList.toggle('hide',t!=='sell');if(navMobile()){$('nav').classList.remove('open');$('scrim').classList.remove('on')}['home','sell','inv','prov','caja'].forEach(x=>{$('v-'+x).classList.toggle('hide',x!==t);$('t-'+x).classList.toggle('on',x===t)});if(t==='inv')renderInv();if(t==='prov')renderProv();if(t==='home')renderHome();if(t==='caja')renderCaja();if(t==='sell')$('q').focus()}
 
 /* ---------- VENDER ---------- */
 function sold(){const m={};S.sales.forEach(s=>s.items.forEach(i=>{if(i.pid)m[i.pid]=(m[i.pid]||0)+i.qty}));return m}
@@ -315,15 +355,13 @@ function editServ(){tmpS=S.serv.map(s=>[...s]);renderSE();$('dlgV').showModal()}
 function renderSE(){$('sel').innerHTML=tmpS.map((s,i)=>`<div class="row" style="margin-bottom:8px;flex-wrap:nowrap"><input aria-label="Nombre" value="${esc(s[0])}" oninput="tmpS[${i}][0]=this.value" style="flex:2 1 0"><input aria-label="Valor" type="number" inputmode="numeric" placeholder="Valor libre" value="${s[1]||''}" oninput="tmpS[${i}][1]=+this.value||0" style="flex:1 1 0"><button aria-label="Quitar servicio" onclick="tmpS.splice(${i},1);renderSE()" style="flex:0 0 auto;color:var(--bad)">✕</button></div>`).join('')}
 function addSE(){tmpS.push(['',0]);renderSE()}
 function saveSE(){S.serv=tmpS.filter(s=>s[0].trim()).map(s=>[s[0].trim(),s[1]]);save();$('dlgV').close();renderServ();toast('Servicios guardados',true)}
-async function exportD(){const nombre='caja-copia-'+new Date().toISOString().slice(0,10)+'.json',datos=JSON.stringify(S),P=window.Capacitor&&window.Capacitor.Plugins;
- try{if(P&&P.Filesystem&&P.Share){const r=await P.Filesystem.writeFile({path:nombre,data:datos,directory:'CACHE',encoding:'utf8'});await P.Share.share({title:'Copia de seguridad',url:r.uri,dialogTitle:'Guardar copia de seguridad'});toast('Copia lista para guardar',true);return}
-  const b=new Blob([datos],{type:'application/json'}),l=document.createElement('a');l.href=URL.createObjectURL(b);l.download=nombre;document.body.appendChild(l);l.click();l.remove();toast('Copia exportada',true)}catch(e){toast('No se pudo exportar la copia')}}
-function importD(el){const f=el.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.p)||!Array.isArray(d.sales)||!d.caja)throw 0;if(!confirm('Esto reemplaza todos los datos actuales por los de la copia. ¿Continuar?'))return;localStorage.setItem('pos1',JSON.stringify(d));location.reload()}catch(e){toast('El archivo no es una copia válida')}};r.readAsText(f);el.value=''}
+function exportD(){try{const b=new Blob([JSON.stringify(S)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='caja-copia-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();toast('Copia exportada',true)}catch(e){toast('No se pudo exportar la copia')}}
+function importD(el){const f=el.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.p)||!Array.isArray(d.sales)||!d.caja)throw 0;if(!confirm('Esto reemplaza todos los datos actuales por los de la copia. ¿Continuar?'))return;if(window.api){window.api.replace(JSON.stringify(d)).then(()=>location.reload())}else{localStorage.setItem('pos1',JSON.stringify(d));location.reload()}}catch(e){toast('El archivo no es una copia válida')}};r.readAsText(f);el.value=''}
 let tmpC={};
-function applyName(){const n=S.name||'Caja Miscelánea';$('bname').textContent=n;document.title=n}
-function editC(){$('bn').value=S.name||'';tmpC=JSON.parse(JSON.stringify(CATS));renderCL();$('dlgC').showModal()}
+function applyName(){const n=S.name||'Cecilia',fr=S.slogan||'Papelería · Regalos · Variedades';$('bname').textContent=n;$('logo').textContent=(n.trim()[0]||'C').toUpperCase();document.title=n+' · Miscelánea';if($('spn')){$('spn').textContent=n;$('spf').textContent=fr}}
+function editC(){$('bn').value=S.name||'Cecilia';$('bs').value=S.slogan||'Papelería · Regalos · Variedades';tmpC=JSON.parse(JSON.stringify(CATS));renderCL();$('dlgC').showModal()}
 function renderCL(){$('cl').innerHTML=Object.entries(tmpC).map(([k,v])=>`<div class="row" style="margin-bottom:8px;flex-wrap:nowrap"><input type="color" aria-label="Color" value="${v[1]}" oninput="tmpC['${k}'][1]=this.value" style="flex:0 0 60px;padding:4px"><input aria-label="Nombre de la categoría" value="${esc(v[0])}" oninput="tmpC['${k}'][0]=this.value" style="flex:1 1 0"></div>`).join('')}
-function saveC(){Object.keys(tmpC).forEach(k=>{tmpC[k][0]=tmpC[k][0].trim()||CATS[k][0];CATS[k]=tmpC[k]});S.cats=JSON.parse(JSON.stringify(CATS));S.name=$('bn').value.trim();save();$('dlgC').close();applyName();fillCats();renderChips();renderGrid();renderInv();toast('Ajustes guardados',true)}
+function saveC(){Object.keys(tmpC).forEach(k=>{tmpC[k][0]=tmpC[k][0].trim()||CATS[k][0];CATS[k]=tmpC[k]});S.cats=JSON.parse(JSON.stringify(CATS));S.name=$('bn').value.trim();S.slogan=$('bs').value.trim();save();$('dlgC').close();applyName();fillCats();renderChips();renderGrid();renderInv();renderHome();toast('Ajustes guardados',true)}
 let dip=null;
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e;$('inst').classList.remove('hide')});
 addEventListener('appinstalled',()=>$('inst').classList.add('hide'));
@@ -426,12 +464,28 @@ async function delF(){if(!confirm('¿Eliminar esta factura?'))return;try{await d
 async function togPaid(id){const f=S.fact.find(x=>x.id===id),np=!f.paid;try{await dbSaveFact({id:f.id,pid:f.pid,num:f.num,date:f.date,amt:f.amt,note:f.note,paid:np});renderProv();toast(np?'Marcada como pagada':'Marcada por pagar',true)}catch(e){toast(e.message)}}
 async function verFoto(id){const f=S.fact.find(x=>x.id===id);try{const p=await dbPhoto(f);if(!p){toast('Esta factura no tiene foto');return}$('fbig').src=p;$('dlgFo').showModal()}catch(e){toast(e.message)}}
 async function dbSaveProv(d){if(d.id)Object.assign(S.prov.find(x=>x.id===d.id),d);else{d.id=Math.max(0,...S.prov.map(x=>x.id))+1;S.prov.push(d)}save();return d.id}
-async function dbDelProv(id){S.prov=S.prov.filter(x=>x.id!==id);S.fact=S.fact.filter(x=>x.pid!==id);save()}
-async function dbSaveFact(d){if(d.id)Object.assign(S.fact.find(x=>x.id===d.id),d);else{d.id=Math.max(0,...S.fact.map(x=>x.id))+1;S.fact.push(d)}save();return d.id}
-async function dbDelFact(id){S.fact=S.fact.filter(x=>x.id!==id);save()}
-async function dbPhoto(f){return f.photo||''}
+async function dbDelProv(id){if(window.api)S.fact.filter(x=>x.pid===id).forEach(f=>window.api.delPhoto(f.id));S.prov=S.prov.filter(x=>x.id!==id);S.fact=S.fact.filter(x=>x.pid!==id);save()}
+async function dbSaveFact(d){const ph=d.photo;delete d.photo;let f;
+ if(d.id){f=S.fact.find(x=>x.id===d.id);Object.assign(f,d)}else{d.id=Math.max(0,...S.fact.map(x=>x.id))+1;f=d;S.fact.push(f)}
+ if(ph!==undefined){if(window.api){await window.api.setPhoto(f.id,ph);f.has=!!ph;delete f.photo}else{f.photo=ph;f.has=!!ph}}
+ save();return f.id}
+async function dbDelFact(id){if(window.api)window.api.delPhoto(id);S.fact=S.fact.filter(x=>x.id!==id);save()}
+async function dbPhoto(f){if(window.api)return f.has?await window.api.getPhoto(f.id):'';return f.photo||''}
 function cartSheet(o){$('cart').classList.toggle('open',o)}
-{const hsh=location.hash.slice(1);if(['sell','inv','prov','caja'].includes(hsh))setTimeout(()=>tab(hsh),0)}
+{const hsh=location.hash.slice(1);if(['home','sell','inv','prov','caja'].includes(hsh))setTimeout(()=>tab(hsh),0)}
+function greet(){const h=new Date().getHours();return h<12?'¡Buenos días!':h<19?'¡Buenas tardes!':'¡Buenas noches!'}
+function dayRange(o){const d=new Date();d.setHours(0,0,0,0);const a=d.getTime()-o*864e5;return[a,a+864e5]}
+function sumDay(o){const[a,b]=dayRange(o),ss=S.sales.filter(s=>s.t>=a&&s.t<b);return{n:ss.length,tot:ss.reduce((x,s)=>x+s.total,0),gan:ss.reduce((x,s)=>x+s.total-s.cost,0)}}
+function renderHome(){const hoy=sumDay(0),ayer=sumDay(1),n=S.name||'Cecilia',fr=S.slogan||'Papelería · Regalos · Variedades';
+ const low=S.p.filter(p=>p.stock<=p.min).sort((a,b)=>a.stock-b.stock),pend=(S.fact||[]).filter(f=>!f.paid).reduce((a,f)=>a+f.amt,0);
+ const cmp=ayer.tot?Math.round((hoy.tot-ayer.tot)/ayer.tot*100):null,fecha=new Date().toLocaleDateString('es-CO',{weekday:'long',day:'numeric',month:'long'});
+ const days=[],vs=[];for(let i=6;i>=0;i--){const[a,b]=dayRange(i),d=new Date(a);days.push(d.getDate()+'/'+(d.getMonth()+1));vs.push(S.sales.filter(s=>s.t>=a&&s.t<b).reduce((x,s)=>x+s.total,0))}
+ const tiles=[['sell','🛒','Vender','Cobrar rápido'],['inv','📦','Inventario',low.length?low.length+' por reponer':'Todo en orden'],['prov','🚚','Proveedores','Facturas y contactos'],['caja','💵','Caja',S.caja.open?'Ver el día':'Abrir caja']];
+ $('v-home').innerHTML=`<div class="hero"><div><small>${esc(fecha)}</small><h2>${greet()}</h2><p class="hn">${esc(n)}</p><p class="hf">${esc(fr)}</p></div><span class="chip2${S.caja.open?' on':''}">${S.caja.open?'● Caja abierta':'○ Caja cerrada'}</span></div>
+ <div class="kpis" style="margin-top:12px"><div class="kpi"><span>Vendido hoy</span><b>${$$(hoy.tot)}</b>${cmp===null?'':`<em class="${cmp>=0?'up':'dn2'}">${cmp>=0?'▲':'▼'} ${Math.abs(cmp)}% vs ayer</em>`}</div><div class="kpi"><span>Ventas hoy</span><b>${hoy.n}</b></div><div class="kpi"><span>Ganancia estimada</span><b>${$$(hoy.gan)}</b></div><div class="kpi"><span>Facturas por pagar</span><b>${$$(pend)}</b></div></div>
+ <div class="tiles">${tiles.map(t=>`<button class="tile" onclick="tab('${t[0]}')"><i>${t[1]}</i><b>${t[2]}</b><small>${t[3]}</small></button>`).join('')}</div>
+ <div class="cg"><div class="cc"><h3>Últimos 7 días</h3>${barSVG(days,vs,['var(--pri)'])}</div><div class="cc"><h3>Por reponer</h3>${low.length?low.slice(0,6).map(p=>`<div class="hb"><div class="hl"><span>${esc(p.name)}</span><b>${Q(p.stock,p.unit)}</b></div><div class="ht"><i style="width:${Math.max(4,Math.min(100,p.min?p.stock/p.min*100:4))}%;background:var(--bad)"></i></div></div>`).join(''):'<p class="empty">Nada por reponer. ¡Buen trabajo! 🎉</p>'}</div></div>`}
+(function(){const sp=$('splash');try{if(sessionStorage.getItem('sp1')){sp.remove();return}sessionStorage.setItem('sp1','1')}catch(e){}setTimeout(()=>{sp.style.opacity=0;setTimeout(()=>sp.remove(),500)},1400)})();
 function updDiff(){const r=shift(),v=$('cont').value;const d=$('diff');if(v===''){d.textContent='';return}const x=+v-r.esp;d.textContent=x===0?'La caja cuadra':(x>0?'Sobran ':'Faltan ')+$$(Math.abs(x));d.classList.toggle('neg',x<0)}
 function openCaja(){S.caja={open:true,base:+$('base').value||0,t:Date.now(),moves:[]};save();renderCaja();toast('Caja abierta',true)}
 function mov(t){moveType=t;$('mt').textContent=t==='in'?'Entrada de dinero':'Salida o gasto';$('mc').value='';$('ma').value='';$('dlgM').showModal()}
@@ -440,6 +494,28 @@ function saveM(){const a=+$('ma').value,c=$('mc').value.trim();if(!a||!c){toast(
 function closeCaja(){const v=$('cont').value;if(v===''){toast('Escribe cuánto efectivo contaste');return}
  const r=shift();S.hist.push({t0:S.caja.t,t1:Date.now(),tot:r.tot,esp:r.esp,cont:+v,gan:r.gan});S.caja={open:false,base:0,t:0,moves:[]};save();renderCaja();toast('Caja cerrada',true)}
 
-applyName();fillCats();renderChips();renderGrid();renderServ();renderCart();navBadge();tab('sell');
+/* ---------- NUBE ---------- */
+const NUBE_TXT={apagado:'Sin conectar. Los datos solo están en este computador.',conectando:'Conectando…',sincronizando:'Sincronizando…',elegir:'Falta decidir qué copia usar.','sin-red':'Sin internet. Se sube solo cuando vuelva la conexión.'};
+function nubeEstado(s){if(!s)return;const el=$('ns');if(!el)return;
+ let t=NUBE_TXT[s.estado]||'';
+ if(s.estado==='ok')t='Todo al día en la nube'+(s.ultima?' · '+new Date(s.ultima).toLocaleString('es-CO'):'')+'.';
+ if(s.msg&&(s.estado==='error'||s.estado==='apagado'||s.estado==='sin-red'))t=s.msg;
+ if(s.email&&s.estado!=='apagado')t=s.email+' · '+t;
+ el.textContent=t;
+ const elegir=s.estado==='elegir',conn=!!s.email&&s.estado!=='apagado'&&!elegir;
+ $('nlogin').classList.toggle('hide',conn||elegir);$('nconn').classList.toggle('hide',!conn);$('nchoose').classList.toggle('hide',!elegir)}
+function openNube(){window.api.sync.status().then(nubeEstado);$('dlgN').showModal()}
+function nubeRes(p,ok){p.then(r=>{if(r&&r.ok){if(ok)ok(r)}else toast((r&&r.msg)||'No se pudo completar')})}
+function nubeConectar(){const e=$('ne').value.trim(),c=$('np').value;if(!e||!c){toast('Escribe el correo y la clave');return}
+ nubeRes(window.api.sync.connect(e,c),()=>{$('np').value='';toast('Conectado',true)})}
+function nubeAhora(){nubeRes(window.api.sync.now(),()=>toast('Sincronizado',true))}
+function nubeDesconectar(){if(!confirm('¿Desconectar la nube? Los datos de este PC no se borran.'))return;nubeRes(window.api.sync.disconnect(),()=>toast('Desconectado',true))}
+function nubeRestaurar(){if(!confirm('Esto reemplaza los datos de ESTE computador por los de la nube (se guarda antes una copia). ¿Continuar?'))return;
+ nubeRes(window.api.sync.restore(),()=>{toast('Datos restaurados',true);setTimeout(()=>location.reload(),600)})}
+function nubeSubir(){if(!confirm('Esto reemplaza los datos de la NUBE por los de este computador. ¿Continuar?'))return;
+ nubeRes(window.api.sync.uploadAll(),()=>toast('Datos subidos',true))}
+if(window.api){$('nbtn').classList.remove('hide');window.api.sync.onStatus(nubeEstado);window.api.onError(m=>toast(m));window.api.sync.status().then(nubeEstado)}
+
+applyName();fillCats();renderChips();renderGrid();renderServ();renderCart();navBadge();tab('home');
 </script>
 </body></html>
